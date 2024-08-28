@@ -7,11 +7,10 @@ socketio = SocketIO(app, cors_allowed_origins="*")
 
 @app.route('/')
 def index():
-    return render_template('index.html')  # Customize this as needed
+    return render_template('index.html')
 
 @socketio.on('video_frame')
 def handle_video_frame(frame):
-    # Handle the incoming frame (e.g., display it in a web page)
     emit('video_frame', frame, broadcast=True)
 
 if __name__ == '__main__':
